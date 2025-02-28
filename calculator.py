@@ -11,10 +11,11 @@ print("Divide 18 by 6")         # 3
 print("or")
 print("Multiply 4 by 9")        #36
 
+print("The first word MUST be capitalised.")
+
 user_input = input("What would you like to calculate? ")
 
 # I will need a function for each operation
-
 def add(a, b):
     x = float(a)
     y = float(b)
@@ -41,12 +42,8 @@ def multiply(a, b):
 
 # First I need to split the input in order to access its different parts
 calc_ls = user_input.split()
-# print(calc_ls)
 
 # Next, some if statements to see which operation to use in the calculation
-
-# final = 0
-
 def calculation(lis):
     final = 0
     if "Add" in lis:
@@ -61,7 +58,5 @@ def calculation(lis):
     return final
 
 # print the result of the calculation
-
 answer = calculation(calc_ls)
-
 print(f"The result of your calcualtion is: {answer}")
