@@ -8,12 +8,6 @@ number = 69
 guess = int(input("What's your guess? "))
 print("  ")
 
-# a function that tells the user to guess again
-
-# a function that tells the user that they are right
-
-# A loop that keeps checking if the input is the same as the number
-
 while guess != number:
     
     if guess > number:
@@ -26,5 +20,3 @@ while guess != number:
         print("  ")
         
 print("WELL DONE! YOU GUESSED MY NUMBER :D ")
-         
-
