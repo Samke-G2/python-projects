@@ -1,5 +1,4 @@
 # Program that finds the prime numbers between 1 and a given number
-
 def find_primes(n):
     primes = [2]
     count_1 = 3
@@ -30,7 +29,6 @@ print(find_primes(primes_to))
 
 
 # Next one: a primes program that displays the number of primes requested by the user.
-
 def number_of_primes(n):
     primes = [2]
     count_1 = 3
