@@ -8,6 +8,7 @@ number = 69
 guess = int(input("What's your guess? "))
 print("  ")
 
+# While loop displays as long as the number is incorrect
 while guess != number:
     
     if guess > number:
@@ -19,4 +20,5 @@ while guess != number:
         guess = int(input("Try again: "))
         print("  ")
         
+# print statement for when number is correct        
 print("WELL DONE! YOU GUESSED MY NUMBER :D ")
