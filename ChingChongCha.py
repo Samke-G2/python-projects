@@ -77,4 +77,30 @@ game2(computer, player_1, xerCount, yerCount)
 
 
 
-
+def best3(xer, yer):
+    xCount = 0
+    yCount = 0
+    
+    while xCount+yCount < 3:
+        if xer == yer:
+            print("It's a tie.")
+            player_1 = input("What's your choice?: ")
+            game1(computer, player_1, xerCount, yerCount)
+        elif  xer == "Paper" and yer == "Rock":
+            print(f"{xer} wins! ")
+            xerCount += 1
+        elif xer == "Paper" and yer == "Scissors":
+            print(f"{yer} wins! ")
+            yerCount += 1
+        elif xer == "Rock" and yer == "Paper":
+            print(f"{yer} wins! ")
+            yerCount += 1
+        elif xer == "Rock" and yer == "Scissors":
+            print(f"{xer} wins! ")
+            xerCount += 1
+        elif xer == "Scissors" and yer == "Paper":
+            print(f"{xer} wins! ")
+            xerCount += 1
+        elif xer == "Scissors" and yer == "Rock":
+            print(f"{yer} wins! ")
+            yerCount += 1
