@@ -1,7 +1,9 @@
 # Rock, Paper, Scissors (AKA "Ching Chong Cha", from obscure childhood memories ig)                     28/02/2025                      17:26
+import random
 
 # User input from the first user ( the computer, ideally)
-computer = "Rock"
+options = ("Rock", "Paper", "Scissors")
+computer = random.choice(options)
 
 # User input from teh second user (person playing the game vs computer)
 player_1 = input("What's your choice?: ")
