@@ -1,8 +1,9 @@
 # Number Guesser project                                28/02/2025                                 16:33
+import random
 
 # intro the concept of the number guesser
 print("Can you guess the whole number, between 1 and 100, that I'm thinking about?")
-number = 69
+number = random.randint(1, 100)
 
 # Start with user input
 guess = int(input("What's your guess? "))
