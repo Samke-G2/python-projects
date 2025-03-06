@@ -2,11 +2,13 @@
 import random
 
 # User input from the first user ( the computer, ideally)
-options = ("Rock", "Paper", "Scissors")
+options = ("rock", "paper", "scissors")
 computer = random.choice(options)
 
 # User input from teh second user (person playing the game vs computer)
-player_1 = input("What's your choice?: ")
+player = None
+while player not in options:
+    player = input("What's your choice?: ").lower()
 
 # counters for the second part (best out of three)
 xerCount = 0
@@ -17,92 +19,72 @@ yerCount = 0
 
 # Nine possible outcomes, i think
 def game1(xer, yer, xerCount, yerCount):
+    print(f"Player: {player}")
+    print(f"Computer: {computer}")
     if xer == yer:
         print("It's a tie.")
-        player_1 = input("What's your choice?: ")
-        game2(computer, player_1, xerCount, yerCount)
-    elif  xer == "Paper" and yer == "Rock":
-        print(f"{xer} wins! ")
+        print(f"You and the computer both chose {xer}.")
+    elif  xer == "paper" and yer == "rock":
+        print(f"You win with {xer} ")
         xerCount += 1
-    elif xer == "Paper" and yer == "Scissors":
-        print(f"{yer} wins! ")
-        yerCount += 1
-    elif xer == "Rock" and yer == "Paper":
-        print(f"{yer} wins! ")
-        yerCount += 1
-    elif xer == "Rock" and yer == "Scissors":
-        print(f"{xer} wins! ")
+    elif xer == "rock" and yer == "scissors":
+        print(f"You win with {xer}")
         xerCount += 1
-    elif xer == "Scissors" and yer == "Paper":
-        print(f"{xer} wins! ")
+    elif xer == "scissors" and yer == "paper":
+        print(f"You win with {xer}")
         xerCount += 1
-    elif xer == "Scissors" and yer == "Rock":
-        print(f"{yer} wins! ")
-        yerCount += 1
-        
-def game2(xer, yer, xerCount, yerCount):
-    if xer == yer:
-        print("It's a tie.")
-        player_1 = input("What's your choice?: ")
-        game1(computer, player_1, xerCount, yerCount)
-    elif  xer == "Paper" and yer == "Rock":
-        print(f"{xer} wins! ")
-        xerCount += 1
-    elif xer == "Paper" and yer == "Scissors":
-        print(f"{yer} wins! ")
-        yerCount += 1
-    elif xer == "Rock" and yer == "Paper":
-        print(f"{yer} wins! ")
-        yerCount += 1
-    elif xer == "Rock" and yer == "Scissors":
-        print(f"{xer} wins! ")
-        xerCount += 1
-    elif xer == "Scissors" and yer == "Paper":
-        print(f"{xer} wins! ")
-        xerCount += 1
-    elif xer == "Scissors" and yer == "Rock":
-        print(f"{yer} wins! ")
-        yerCount += 1
+    else:
+        print("You lose")
 
 
 # run the if-statement function with the input value(s)
-game2(computer, player_1, xerCount, yerCount)
+#game1(player, computer, xerCount, yerCount)
 
 # After i've created this one, maybe create a best-out-of-three version??
 
 # The best-out-of-three versiion uses some counters and a while loop
-
-
-# while xerCount + yerCount < 3 :
-#     game2(computer, player_1, xerCount, yerCount)
-
-
-
-
-def best3(xer, yer):
+def game2(n):
     xCount = 0
     yCount = 0
+    winner = n/2
     
-    while xCount+yCount < 3:
+    while xCount < winner and yCount < winner :
+        yer = random.choice(options)
+        xer = input("What's your choice?: ").lower()
+        while xer not in options:
+            xer = input("What's your choice?: ").lower()
+        print(f"Player: {xer}")
+        print(f"Computer: {yer}")
+        
         if xer == yer:
             print("It's a tie.")
-            player_1 = input("What's your choice?: ")
-            game1(computer, player_1, xerCount, yerCount)
-        elif  xer == "Paper" and yer == "Rock":
-            print(f"{xer} wins! ")
-            xerCount += 1
-        elif xer == "Paper" and yer == "Scissors":
-            print(f"{yer} wins! ")
-            yerCount += 1
-        elif xer == "Rock" and yer == "Paper":
-            print(f"{yer} wins! ")
-            yerCount += 1
-        elif xer == "Rock" and yer == "Scissors":
-            print(f"{xer} wins! ")
-            xerCount += 1
-        elif xer == "Scissors" and yer == "Paper":
-            print(f"{xer} wins! ")
-            xerCount += 1
-        elif xer == "Scissors" and yer == "Rock":
-            print(f"{yer} wins! ")
-            yerCount += 1
+            print(f"You and the computer both chose {xer}.")
+            print(" ")
+        elif  xer == "paper" and yer == "rock":
+            print(f"You win with {xer} ")
+            print(" ")
+            xCount += 1 
+        elif xer == "rock" and yer == "scissors":
+            print(f"You win with {xer}")
+            print(" ")
+            xCount += 1
+            
+        elif xer == "scissors" and yer == "paper":
+            print(f"You win with {xer}")
+            print(" ")
+            xCount += 1
+            
+        else:
+            print("You lose")
+            print(" ")
+            yCount += 1
+            
+            
+    print(f"Player won {xCount} and Computer won {yCount}")
+    print("Thanks for playing! ")
+
+
+print("ROCK, PAPER, SCISSORS - BEST OUT OF THREE")
+print(" ")
+game2(3)
+
