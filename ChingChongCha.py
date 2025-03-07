@@ -3,12 +3,12 @@ import random
 
 # User input from the first user ( the computer, ideally)
 options = ("rock", "paper", "scissors")
-computer = random.choice(options)
+# computer = random.choice(options)
 
 # User input from teh second user (person playing the game vs computer)
-player = None
-while player not in options:
-    player = input("What's your choice?: ").lower()
+# player = None
+# while player not in options:
+#     player = input("What's your choice?: ").lower()
 
 # counters for the second part (best out of three)
 xerCount = 0
@@ -18,27 +18,44 @@ yerCount = 0
 # OR I could assign the possible numbers some number values and compare those (dunno how, just seems like it would be interesting to do)
 
 # Nine possible outcomes, i think
-def game1(xer, yer, xerCount, yerCount):
-    print(f"Player: {player}")
-    print(f"Computer: {computer}")
-    if xer == yer:
-        print("It's a tie.")
-        print(f"You and the computer both chose {xer}.")
-    elif  xer == "paper" and yer == "rock":
-        print(f"You win with {xer} ")
-        xerCount += 1
-    elif xer == "rock" and yer == "scissors":
-        print(f"You win with {xer}")
-        xerCount += 1
-    elif xer == "scissors" and yer == "paper":
-        print(f"You win with {xer}")
-        xerCount += 1
-    else:
-        print("You lose")
+def game1():
+
+    playing = True
+    while playing: 
+        xer = None
+        while xer not in options:
+            xer = input("What's your choice?: ").lower()
+        yer = random.choice(options)
+        print(" ")
+        print(f"Player: {xer}")
+        print(f"Computer: {yer}")
+        print(" ")
+        if xer == yer:
+            print("It's a tie.")
+            print(f"You and the computer both chose {xer}.")
+            print(" ")
+        elif  xer == "paper" and yer == "rock":
+            print(f"You win with {xer} ")
+            print(" ")
+        elif xer == "rock" and yer == "scissors":
+            print(f"You win with {xer}")
+            print(" ")
+        elif xer == "scissors" and yer == "paper":
+            print(f"You win with {xer}")
+            print(" ")
+        else:
+            print("You lose")
+            print(" ")
+            
+        play_again = input("Play again? (y/n): ").lower()
+        print(" ")
+        if not play_again == "y":
+            playing = False
+    print("Thanks for playing! ")
 
 
 # run the if-statement function with the input value(s)
-#game1(player, computer, xerCount, yerCount)
+game1()
 
 # After i've created this one, maybe create a best-out-of-three version??
 
@@ -84,7 +101,7 @@ def game2(n):
     print("Thanks for playing! ")
 
 
-print("ROCK, PAPER, SCISSORS - BEST OUT OF THREE")
-print(" ")
-game2(3)
+# print("ROCK, PAPER, SCISSORS - BEST OUT OF THREE")
+# print(" ")
+# game2(3)
 
