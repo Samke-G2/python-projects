@@ -1,35 +1,28 @@
 # Rock, Paper, Scissors (AKA "Ching Chong Cha", from obscure childhood memories ig)                     28/02/2025                      17:26
 import random
 
-# User input from the first user ( the computer, ideally)
+# Options from the computer and user to choose from
 options = ("rock", "paper", "scissors")
-# computer = random.choice(options)
-
-# User input from teh second user (person playing the game vs computer)
-# player = None
-# while player not in options:
-#     player = input("What's your choice?: ").lower()
-
-# counters for the second part (best out of three)
-xerCount = 0
-yerCount = 0
 
 # if statements that compare the choices (in a function, we know from 'calculator' that free-standing if satements don't really work well)
-# OR I could assign the possible numbers some number values and compare those (dunno how, just seems like it would be interesting to do)
-
-# Nine possible outcomes, i think
+# Nine possible outcomes, 3 are a tie (one line for those), 3 are wins (seperate wins), the rest can just be grouped as losses
 def game1():
 
     playing = True
-    while playing: 
+    
+    while playing:
+        # Player input, checking it to see if it's valid
         xer = None
         while xer not in options:
             xer = input("What's your choice?: ").lower()
+        # computer chooses, a random valid choice
         yer = random.choice(options)
+        # printing both choices
         print(" ")
         print(f"Player: {xer}")
         print(f"Computer: {yer}")
         print(" ")
+        # comparing the choices to determine winner automatically
         if xer == yer:
             print("It's a tie.")
             print(f"You and the computer both chose {xer}.")
@@ -46,20 +39,24 @@ def game1():
         else:
             print("You lose")
             print(" ")
-            
+        # Play again option to repeat games as many times as I want
         play_again = input("Play again? (y/n): ").lower()
         print(" ")
         if not play_again == "y":
             playing = False
+    # End-of-game message
     print("Thanks for playing! ")
+    print(" ")
 
 
-# run the if-statement function with the input value(s)
+# run the game to see if it works
+print("ROCK, PAPER, SCISSORS! (with optional repeats)")
+print(" ")
 game1()
 
-# After i've created this one, maybe create a best-out-of-three version??
+# After i've created this one, maybe create a best-out-of-three version??..... I DID!!!
 
-# The best-out-of-three versiion uses some counters and a while loop
+# The best-out-of-whatever version uses some counters and a while loop
 def game2(n):
     xCount = 0
     yCount = 0
@@ -85,23 +82,21 @@ def game2(n):
             print(f"You win with {xer}")
             print(" ")
             xCount += 1
-            
         elif xer == "scissors" and yer == "paper":
             print(f"You win with {xer}")
             print(" ")
             xCount += 1
-            
         else:
             print("You lose")
             print(" ")
             yCount += 1
-            
-            
+               
     print(f"Player won {xCount} and Computer won {yCount}")
     print("Thanks for playing! ")
 
 
-# print("ROCK, PAPER, SCISSORS - BEST OUT OF THREE")
-# print(" ")
-# game2(3)
-
+# first as player how many possible rounds the want
+n = int(input("ROCK, PAPER, SCISSORS - BEST OUT OF? "))
+print(" ")
+# then run the game
+game2(n)
