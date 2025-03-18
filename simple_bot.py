@@ -13,4 +13,4 @@ print(f"You are {age_difference} years older than me. I'm only {bot_age} years o
 colour = input("What's your favourite colour? ")
 print(f"Oh, {colour} is a beautiful colour! ")
 
-print(f"Thanks for the conversation, {name}")
+print(f"Thanks for the conversation, {name}! ") 
