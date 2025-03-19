@@ -3,24 +3,7 @@ from wordlist import words
 import random
 
 
-# First, I'll have a word
-
-
-# Next, I'll have user input guessing that word
-
-
-# Then a function to check if the user's word is my word
-# If not, the function asks the user to guess a letter in my word, then checks if the letter is present.
-# If the letter is present, the program will say so and show the position of the letter
-# If not it will increment a count,
-# when the count reaches 6 the user will lose the game and the word will be displayed
-
-
-
-# solution
-
-
-# Dictionary of key(number) and value(tuple):
+# Dictionary of key(number) and value(tuple) that displays the hangman figure:
 hangman_art = {
     0: (" ___  ",
         "|   | ",
@@ -66,16 +49,20 @@ hangman_art = {
     
 }
 
+# function that dislays our hangman figure
 def display_hangman(guesses):
     for line in hangman_art[guesses]:
         print(line)
 
+# Function to display the underscore hint
 def display_hint(hint):
     print(" ".join(hint))
 
+# function to display the answer in the event of a loss (or win)
 def display_answer(answer):
     print(" ".join(answer))
 
+# main function to play the game, using the other functions to handle some of the smaller processes
 def main():
     answer = random.choice(words).lower()
     hint = ["_"] * len(answer)
@@ -117,5 +104,4 @@ def main():
             
             
 
-if __name__ == "__main__":
-    main()
+main()
