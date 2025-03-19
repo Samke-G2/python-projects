@@ -1,4 +1,5 @@
 # Hangman Project                               # 03/05/2025                                    17:21
+from wordlist import words
 import random
 
 
@@ -18,7 +19,6 @@ import random
 
 # solution
 
-words = ("Apple", "Orange", "Banana", "Coconut", "Pineapple")
 
 # Dictionary of key(number) and value(tuple):
 hangman_art = {
@@ -77,16 +77,44 @@ def display_answer(answer):
     print(" ".join(answer))
 
 def main():
-    answer = random.choice(words)
+    answer = random.choice(words).lower()
     hint = ["_"] * len(answer)
     x_guesses = 0
     guessed_letters = set()
-    is_running = True
     
-    while is_running:
+    while True:
         display_hangman(x_guesses)
         display_hint(hint)
         guess = input("Enter a letter: ").lower()
+        
+        if len(guess) != 1 or not guess.isalpha():
+            print("Invalid input")
+            continue
+        
+        if guess in guessed_letters:
+            print(f"{guess} is already guessed")
+            continue
+            
+        guessed_letters.add(guess)
+        
+        if guess in answer:
+            for i in range(len(answer)):
+                if answer[i] == guess: 
+                    hint[i] = guess
+        else:
+            x_guesses += 1
+            
+        if "_" not in hint:
+            display_hangman(x_guesses)
+            display_answer(answer)
+            print("YOU WIN!!!")
+            break
+        elif x_guesses >= len(hangman_art) - 1:
+            display_hangman(x_guesses)
+            display_answer(answer)
+            print("YOU LOSE!")
+            break
+            
             
 
 if __name__ == "__main__":
