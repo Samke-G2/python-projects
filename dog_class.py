@@ -23,3 +23,27 @@ The specifications were:
 Bonus(optional)
 - Reject food if energy is already 100, and print: "Milo is full and doesn't want to eat right now."
 """
+
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.energy = 100  # starts fully energized
+
+    def bark(self):
+        print(f"{self.name} says: Woof!")
+
+    def sleep(self, hours):
+        self.energy += hours * 10
+        if self.energy > 100:
+            self.energy = 100
+        print(f"{self.name} slept for {hours} hours and now has {self.energy} energy.")
+
+    def play(self, minutes):
+        energy_used = minutes * 2
+        if self.energy >= energy_used:
+            self.energy -= energy_used
+            print(f"{self.name} played for {minutes} minutes. Energy is now {self.energy}.")
+        else:
+            print(f"{self.name} is too tired to play. Try letting them sleep.")
