@@ -47,3 +47,29 @@ class Dog:
             print(f"{self.name} played for {minutes} minutes. Energy is now {self.energy}.")
         else:
             print(f"{self.name} is too tired to play. Try letting them sleep.")
+
+    def eat(self, food):        # I added this method to the class
+        food = food.lower()
+        if self.energy >= 100:
+            print(f"{self.name} is full and doesn't want to eat right now.")
+        else:
+            if food == "treat":
+                self.energy += 5
+                if self.energy > 100:
+                    self.energy = 100
+                print(f"{self.name} loved the treat! Energy is now {self.energy}.")
+            elif food == "dog food":
+                self.energy += 10
+                if self.energy > 100:
+                    self.energy = 100
+                print(f"{self.name} ate dog food. Energy is now {self.energy}.")
+            else:
+                print(f"{self.name} didn't like that.")
+
+        # chatGPT suggested I cap the energy at 100 like so: (apparently it's a more elegant method as it avoids repeating code)
+        # if food == "treat":
+        #     self.energy = min(self.energy + 5, 100)
+        #     print(f"{self.name} loved the treat! Energy is now {self.energy}.")
+        # elif food == "dog food":
+        #     self.energy = min(self.energy + 10, 100)
+        #     print(f"{self.name} ate dog food. Energy is now {self.energy}.")
