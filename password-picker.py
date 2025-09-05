@@ -20,13 +20,20 @@ nouns = [
             "duck", "panda"
 ]
 
-adjective = random.choice(adjective)
+while True:
+    adjective = random.choice(adjectives)
 
-noun = random.choice(noun)
+    noun = random.choice(nouns)
 
-number = randint(0, 100)
+    number = random.randint(0, 100)
 
-special_char = random.choice(string.punctuation)
+    special_char = random.choice(string.punctuation)
 
-password = adjective + noun +str(number) + special_char
-print(f"Your new password is: {password} ")
+    password = adjective + noun +str(number) + special_char
+    print(f"Your new password is: {password} ")
+
+    response = input("Would you like another password? (y / n) : ").lower()
+    if response == "n":
+        break
+    else:
+        continue
