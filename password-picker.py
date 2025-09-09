@@ -20,8 +20,15 @@ nouns = [
             "duck", "panda"
 ]
 
+colors = [
+            "red", "orange", "yellow", "green", "blue", "indigo", "violet", "black", "white",
+            "gold", "silver",
+]
+
 while True:
     adjective = random.choice(adjectives)
+
+    color = random.choice(colors)
 
     noun = random.choice(nouns)
 
@@ -29,7 +36,7 @@ while True:
 
     special_char = random.choice(string.punctuation)
 
-    password = adjective + noun +str(number) + special_char
+    password = adjective + color + noun +str(number) + special_char
     print(f"Your new password is: {password} ")
 
     response = input("Would you like another password? (y / n) : ").lower()
